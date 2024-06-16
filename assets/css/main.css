@@ -1,0 +1,131 @@
+/* ==================== Google Fonts - Roboto ==================== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+/* ==================== Variables CSS ==================== */
+:root {
+  --bg-color: #f2f2f2;
+  --online-color: #00ff00;
+  --offline-color: #ff0000;
+}
+
+/* ==================== Base CSS ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-color);
+}
+
+/* ==================== Toast CSS ==================== */
+.wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  animation: show__slide 1s ease forwards;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 450px;
+  background: #fff;
+  padding: 20px 15px 20px 20px;
+  border-radius: 10px;
+  border-left: 6px solid var(--online-color);
+  box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
+}
+
+.toast__content {
+  display: flex;
+  align-items: center;
+}
+
+.network__icon {
+  font-size: 26px;
+  margin-right: 20px;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: var(--online-color);
+}
+
+.network__details span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.network__details p {
+  color: #878787;
+}
+
+.close__icon {
+  cursor: pointer;
+  color: #878787;
+  font-size: 24px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  transition: all 0.3s ease;
+}
+
+.close__icon:hover {
+  background: #e2e2e2;
+}
+
+/* Offline Class */
+.offline {
+  border-color: var(--offline-color);
+}
+
+.offline .network__icon {
+  background-color: var(--offline-color);
+}
+
+/* Show Toast Animation */
+@keyframes show__slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(10%);
+  }
+  80%,
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+/* Hide Toast Animation */
+.hide__toast {
+  animation: hide__toast 1s ease forwards;
+}
+
+@keyframes hide__toast {
+  0% {
+    transform: translateX(20px);
+  }
+  40% {
+    transform: translateX(10%);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+  }
+}
